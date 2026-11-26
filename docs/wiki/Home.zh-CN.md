@@ -1,0 +1,89 @@
+# Ydisks闲鱼助手 Wiki（中文）
+
+[English](Home) | 中文
+
+本 Wiki 面向管理后台操作人员。先完成“部署与数据库”和“账号接入”，再配置库存、商品、发货模板、
+在线聊天、账号自动任务、交易自动化与 AI。
+
+## 推荐上线路径
+
+1. 选择部署方式：Docker Compose、Linux 安装包、Windows 安装包、macOS 安装包或源码运行。
+2. Docker Compose 设置 `POSTGRES_*`、`DATABASE_URL`、`XIANYU_DATA_KEY` 和
+   `XIANYU_ADMIN_PASSWORD`；其他方式启动服务后打开管理页面，在首次初始化页面填写密码。
+3. 设置并备份 `XIANYU_DATA_KEY`；默认管理员用户名为 `admin`。
+4. 在“账号管理”扫码接入账号，确认账号为启用且在线状态。
+5. 在“卡密库存”建立可交付内容。
+6. 同步已有商品，或通过“商品管理”发布商品。
+7. 可选：在“发货模板”建立多条顺序消息，并在付款发货或评价赠品规则中绑定。
+8. 在“在线聊天”确认账号会话和历史消息正常，必要时发送测试文本或图片。
+9. 在“账号自动任务”配置自动评价和每日擦亮；在“自动化规则”建立改价、付款发货、评价赠品或求评价规则。
+10. 可选：在“系统与AI”配置模型，再为每个账号启用 AI。
+11. 建立通知渠道并绑定到账号；用测试通知验证。
+12. 用小额测试订单验证卡密发送和库存扣减；如果账号启用了“自动确认发货”，再确认平台状态随后变为已发货后，才开放正式商品。
+
+桌面安装包的管理地址是 `http://127.0.0.1:59188`。Windows 和 macOS 安装包自带后台服务、托盘/菜单栏
+控制器以及匹配架构的 Playwright driver、Chromium；Linux 安装包自带相同的浏览器 runtime，
+安装脚本只补齐系统依赖。桌面托盘退出前会先停止后台服务。
+
+管理后台侧边栏底部会显示当前运行版本和短提交号。源码运行默认显示 `dev`/`unknown`；正式安装包和
+Docker 镜像会显示构建时注入的版本与提交信息（提交号最多显示前 12 位；正式版本号形如 `1.2.3` 时显示为 `v1.2.3`）。
+
+Windows 安装包注册 `YdisksXianyuHelper` 服务；macOS 安装包分别提供 Apple Silicon（arm64）和
+Intel（amd64）版本，并注册 `com.ydisks.xianyu-helper.server` 与
+`com.ydisks.xianyu-helper.tray` 两个 LaunchAgent。Linux 安装包按 amd64/arm64 分发，执行
+`sudo ./install.sh` 后注册 `ydisks-xianyu-helper.service`。三种独立安装包都在构建阶段准备匹配架构
+的 Chromium，不依赖 Debian 仓库版本。
+
+## 先读这些页面
+
+- [部署与数据库](部署与数据库.zh-CN)
+- [仪表盘](仪表盘.zh-CN)
+- [账号管理](账号管理.zh-CN)
+- [卡密库存](卡密库存.zh-CN)
+- [商品管理](商品管理.zh-CN)（侧边栏入口为“商品列表”）
+- [订单管理](订单管理.zh-CN)
+- [发货模板](发货模板.zh-CN)
+- [自动化发货与回复](自动化发货与回复.zh-CN)（侧边栏入口为“自动化规则”）
+- [在线聊天与账号自动任务](在线聊天与账号自动任务.zh-CN)
+- [批量铺货](批量铺货.zh-CN)
+- [AI、通知与运维](AI、通知与运维.zh-CN)（侧边栏入口为“通知设置”）
+- [系统与AI](系统设置.zh-CN)
+- [账号、库存与商品](账号、库存与商品.zh-CN)（上线前总览）
+- [本地资源库](资源库.zh-CN)
+- [销售统计](销售统计.zh-CN)
+- [运行日志](运行日志.zh-CN)（管理员）
+- [砍价订单与自动发货流程](砍价订单与自动发货流程.zh-CN)
+- [请求频率与风控设计](请求频率与风控设计.zh-CN)
+- [通知事件参考](通知事件参考.zh-CN)
+- [管理 API](管理API.zh-CN)（无页面的运维接口）
+- [配置参考](配置参考.zh-CN)（命令行参数与环境变量）
+- [常见问题](常见问题.zh-CN)
+- [风控处理](风控处理.zh-CN) — Cookie 被闲鱼风控了？先看这里
+
+“账号、库存与商品”是上线前的串联总览；需要按页面操作时，优先阅读上面的独立手册。
+
+## 关键安全规则
+
+- 不要提交 `.env`、数据库备份、Cookie、API Key 或通知 Webhook 地址。
+- `XIANYU_DATA_KEY` 用于加密 Cookie、密码、AI/SMTP 和通知凭据；换密钥会导致旧数据无法解密。务必和数据库一同离线备份。
+- 自动化必须先用测试商品、测试卡密和小额订单验证。库存耗尽、账号掉线或风控时，不应假设发货已完成。
+- 本项目为非官方工具。请确保使用方式符合平台规则、当地法律及账号授权范围。
+
+## GitHub Wiki 同步
+
+这些 Markdown 文件位于仓库 `docs/wiki/`，是 Wiki 的唯一维护来源；英文页面使用默认文件名，中文页面使用
+`.zh-CN` 后缀，`_Sidebar.md` 是 Wiki 导航。`main` 分支发生变更后，`.github/workflows/sync-wiki.yml` 会自动把这些文件镜像到 GitHub
+Wiki；也可以通过 GitHub Actions 手动运行该工作流。仓库内保留副本，便于在 Pull Request 中审阅和版本化维护，
+不建议直接在 GitHub Wiki 仓库中维护内容。
+
+在线使用手册站点同样以 `docs/wiki/` 为唯一内容源：`manual/` 目录是 VitePress 站点，构建前由
+`manual/scripts/prepare.mjs` 从 `docs/wiki/` 生成页面（中文在根路径，英文在 `/en/`，并去除本“GitHub Wiki 同步”章节），
+再构建到 `/manual/`。`.github/workflows/manual.yml` 在 `main` 分支的 `docs/**`、`manual/**` 或该工作流文件变更时触发，
+也可手动运行；涉及 `docs/wiki/**`、`manual/**` 或该工作流文件的 Pull Request 只执行构建（含站内死链检查），不部署。
+构建任务使用 Node.js 24 执行 `npm ci --prefix manual` 与 `npm run build --prefix manual`，并把 `docs/index.html`、
+`docs/CNAME`、`docs/assets`、`docs/img` 与手册产物（置于 `/manual/`）组装为 Pages 站点；部署任务通过
+`actions/deploy-pages` 发布到 GitHub Pages，域名由 `docs/CNAME` 中的配置决定。
+
+部署任务只有在仓库 Settings → Pages 把 Source 切换为 “GitHub Actions” 后才会生效；因此站点（官网首页与 `/manual/`）
+改由该工作流整体发布，不再依赖“从 `main` 分支的 `/docs` 目录发布”。GitHub Wiki 同步（`sync-wiki.yml`）与 Pages 发布
+（`manual.yml`）是两个独立流程，修改 `docs/wiki/` 后两者都会各自触发。

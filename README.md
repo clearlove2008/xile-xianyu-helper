@@ -1,6 +1,6 @@
 # Xile Xianyu Helper
 
-> A local-first Xianyu operations workbench that connects product sourcing, publishing, customer service, order fulfillment and after-sales into one automated pipeline. Ships as a single Go binary with a React UI, plus one-click offline installers for Windows and macOS.
+> A local-first Xianyu operations workbench that connects product sourcing, publishing, customer service, order fulfillment and after-sales into one automated pipeline. Ships as a single Go binary with a React UI, with build scripts for offline Windows and macOS installers.
 
 ## Join the community
 
@@ -127,10 +127,12 @@ The service listens on **`:59188`** by default — open `http://127.0.0.1:59188`
 
 ## Quick Start
 
-### Option 1: Installer (recommended)
+### Option 1: Installer (distributed separately)
 
-1. Download the installer for your OS from [Releases](https://github.com/clearlove2008/xile-xianyu-helper/releases).
-2. Windows: run `喜乐闲鱼助手-安装包-v2026.11.26.exe` and follow the wizard; the local database is initialized on first launch.
+> Installers are not attached to GitHub Releases. They are shared via separate netdisk links; this repository only provides source code and build scripts.
+
+1. Get the installer for your OS from the distribution channel.
+2. Windows: run the installer and follow the wizard; the local database is initialized on first launch.
 3. macOS: open the pkg. Since it is unsigned, first launch requires right-click → Open, or approving it in System Settings → Privacy & Security.
 4. Visit `http://127.0.0.1:59188`, set an admin password and you're in.
 
@@ -220,7 +222,7 @@ Repository layout:
 
 This project is released under the Apache License 2.0. It is a distribution forked from another Apache-2.0 licensed open-source project; the original copyright and license notices are preserved as required by the license in [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-This distribution adds or improves: opportunity mining and product workflows, one-click publishing, embedded aggregated search (75 plugins plus Xuebapan), Telegram whole-word filtering, Quark/Baidu netdisk transfer, sold-out auto re-listing, inventory-limit fallback, shipping-location fallback, multi-account selection for publishing, batch product image replacement, and Windows / macOS offline installers.
+This distribution adds or improves: opportunity mining and product workflows, one-click publishing, embedded aggregated search (75 plugins plus Xuebapan), Telegram whole-word filtering, Quark/Baidu netdisk transfer, sold-out auto re-listing, inventory-limit fallback, shipping-location fallback, multi-account selection for publishing, batch product image replacement, and Windows / macOS offline installer build scripts.
 
 ### Security & privacy
 

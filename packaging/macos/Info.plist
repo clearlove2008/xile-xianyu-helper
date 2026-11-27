@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.ydisks.xianyu-helper</string>
+	<string>com.xile.xianyu-helper</string>
 	<key>CFBundleName</key>
-	<string>Ydisks Xianyu Helper</string>
+	<string>Xile Xianyu Helper</string>
 	<key>CFBundleDisplayName</key>
-	<string>Ydisks Xianyu Helper</string>
+	<string>Xile Xianyu Helper</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleVersion</key>
@@ -17,7 +17,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>CFBundleExecutable</key>
-	<string>Ydisks闲鱼助手</string>
+	<string>喜乐闲鱼助手</string>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleIconFile</key>

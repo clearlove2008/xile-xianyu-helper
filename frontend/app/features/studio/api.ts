@@ -4,7 +4,7 @@ import type {
 } from './types';
 
 /** SETTINGS_KEY 是本地设置的存储键；密钥只留在本机浏览器，不上送服务端也不入库。 */
-const SETTINGS_KEY = 'ydisks.studio.settings.v1';
+const SETTINGS_KEY = 'xile.studio.settings.v1';
 
 /** GENERATE_TIMEOUT_MS 是单次出图的等待上限，上游排队时可能超过两分钟。 */
 const GENERATE_TIMEOUT_MS = 5 * 60_000;

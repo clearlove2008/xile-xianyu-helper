@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Ydisks 闲鱼助手 API
+  title: Xile 闲鱼助手 API
   version: 1.0.0
   description: 版本化 HTTP API 的唯一契约源。
 servers:
@@ -8738,10 +8738,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HealthDegradedResponse'
-  "/api/v1/pansou/options":
+  "/api/v1/search/options":
     get:
-      operationId: getApiV1PansouOptions
-      summary: getApiV1PansouOptions
+      operationId: getApiV1SearchOptions
+      summary: getApiV1SearchOptions
       security: [{cookieAuth: []}]
       responses:
         '200':
@@ -8749,7 +8749,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PansouOptions'
+                $ref: '#/components/schemas/SearchOptions'
         '401':
           description: 统一错误响应
           content:
@@ -8762,10 +8762,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  "/api/v1/pansou/search":
+  "/api/v1/search/search":
     get:
-      operationId: getApiV1PansouSearch
-      summary: getApiV1PansouSearch
+      operationId: getApiV1SearchSearch
+      summary: getApiV1SearchSearch
       security: [{cookieAuth: []}]
       parameters:
           - name: kw
@@ -8824,7 +8824,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PansouSearchResponse'
+                $ref: '#/components/schemas/SearchSearchResponse'
         '400':
           description: 统一错误响应
           content:
@@ -8850,22 +8850,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     post:
-      operationId: postApiV1PansouSearch
-      summary: postApiV1PansouSearch
+      operationId: postApiV1SearchSearch
+      summary: postApiV1SearchSearch
       security: [{cookieAuth: []}]
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PansouSearchRequest'
+              $ref: '#/components/schemas/SearchSearchRequest'
       responses:
         '200':
           description: 成功
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PansouSearchResponse'
+                $ref: '#/components/schemas/SearchSearchResponse'
         '400':
           description: 统一错误响应
           content:
@@ -11956,7 +11956,7 @@ components:
         details:
           type: object
       additionalProperties: true
-    PansouMergedLink:
+    SearchMergedLink:
       type: object
       required: [url, password, note, datetime]
       properties:
@@ -11968,7 +11968,7 @@ components:
         images:
           type: array
           items: {type: string}
-    PansouSearchResponse:
+    SearchSearchResponse:
       type: object
       required: [total]
       properties:
@@ -11982,14 +11982,14 @@ components:
           type: object
           additionalProperties:
             type: array
-            items: {$ref: '#/components/schemas/PansouMergedLink'}
-    PansouCloudType:
+            items: {$ref: '#/components/schemas/SearchMergedLink'}
+    SearchCloudType:
       type: object
       required: [key, label]
       properties:
         key: {type: string}
         label: {type: string}
-    PansouOptions:
+    SearchOptions:
       type: object
       required: [enabled, enable_tg, plugins, cloud_types, proxy_configured]
       properties:
@@ -12003,7 +12003,7 @@ components:
           items: {type: string}
         cloud_types:
           type: array
-          items: {$ref: '#/components/schemas/PansouCloudType'}
+          items: {$ref: '#/components/schemas/SearchCloudType'}
         proxy_configured: {type: boolean}
     StudioModelRequest:
       type: object
@@ -12088,7 +12088,7 @@ components:
         image: {type: string}
         fallback: {type: boolean}
         prompt: {type: string}
-    PansouSearchFilter:
+    SearchSearchFilter:
       type: object
       properties:
         include:
@@ -12097,7 +12097,7 @@ components:
         exclude:
           type: array
           items: {type: string}
-    PansouSearchRequest:
+    SearchSearchRequest:
       type: object
       required: [kw]
       properties:
@@ -12118,7 +12118,7 @@ components:
         ext:
           type: object
           additionalProperties: true
-        filter: {$ref: '#/components/schemas/PansouSearchFilter'}
+        filter: {$ref: '#/components/schemas/SearchSearchFilter'}
     OpportunitySearchResponse:
       type: object
       properties:

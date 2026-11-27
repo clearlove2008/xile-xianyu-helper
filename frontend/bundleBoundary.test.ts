@@ -25,8 +25,8 @@ const PAGE_CHUNK_BUDGETS: Record<string, number> = {
   Chat: 50 * 1024,
   // RuntimeLogs 页面承载运行日志过滤与日志流展示。
   RuntimeLogs: 20 * 1024,
-  // PanSouSearch 页面承载网盘搜索、结果分组、历史与关注面板以及服务端设置，实际约 27.2 KiB，28 KiB 预算保留少量余量。
-  PanSouSearch: 28 * 1024,
+  // SearchSearch 页面承载网盘搜索、结果分组、历史与关注面板以及服务端设置，实际约 27.2 KiB，28 KiB 预算保留少量余量。
+  SearchSearch: 28 * 1024,
   // StudioPage 页面承载出图表单、文案润色、结果预览与多账号勾选发布，实际约 20.7 KiB，22 KiB 预算保留少量余量。
   StudioPage: 22 * 1024,
   // OpportunityPage 页面承载商机搜索、结果卡片、详情多图预览与生图发布，实际约 14.4 KiB，16 KiB 预算保留少量余量。
@@ -55,7 +55,7 @@ describe('frontend production bundle boundary', /* 当前回调验证生产入�
 
   test('十七个业务页面都生成独立页面 chunk', /* 当前回调验证各页面可按路由延迟下载。 */ () => {
     // pageChunkNames 保存 Vite 输出的业务页面 chunk 文件名。
-    const pageChunkNames = readdirSync(resolve(staticRoot, 'assets')).filter(/* 当前回调筛选业务页面分片文件。 */ fileName => /^(Dashboard|AccountList|OrderList|CardList|ItemList|Settings|Rules|Notifications|Chat|DeliveryTemplates|RuntimeLogs|PanSouSearch|StudioPage|OpportunityPage|WorkflowPage|NetdiskTransfer|NetdiskAccounts)-.+\.js$/.test(fileName));
+    const pageChunkNames = readdirSync(resolve(staticRoot, 'assets')).filter(/* 当前回调筛选业务页面分片文件。 */ fileName => /^(Dashboard|AccountList|OrderList|CardList|ItemList|Settings|Rules|Notifications|Chat|DeliveryTemplates|RuntimeLogs|SearchSearch|StudioPage|OpportunityPage|WorkflowPage|NetdiskTransfer|NetdiskAccounts)-.+\.js$/.test(fileName));
     expect(pageChunkNames).toHaveLength(17);
   });
 

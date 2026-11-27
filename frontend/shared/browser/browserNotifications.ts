@@ -2,10 +2,10 @@ import { useCallback,useEffect,useState } from 'react';
 import { playNotificationSoundIfEnabled } from './notificationSound';
 
 /** BROWSER_NOTIFICATION_PREFERENCE_KEY 保存当前浏览器的系统通知开关，不写入服务端配置。 */
-export const BROWSER_NOTIFICATION_PREFERENCE_KEY = 'ydisks.browser_notifications.enabled';
+export const BROWSER_NOTIFICATION_PREFERENCE_KEY = 'xile.browser_notifications.enabled';
 
 /** BROWSER_NOTIFICATION_CHANGE_EVENT 用于同一标签页内同步聊天页与应用壳的通知偏好。 */
-const BROWSER_NOTIFICATION_CHANGE_EVENT = 'ydisks:browser-notification-preference-changed';
+const BROWSER_NOTIFICATION_CHANGE_EVENT = 'xile:browser-notification-preference-changed';
 
 /** BrowserNotificationPermission 统一表示浏览器通知权限以及当前环境不支持的状态。 */
 export type BrowserNotificationPermission = NotificationPermission | 'unsupported';

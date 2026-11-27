@@ -154,7 +154,7 @@ func TestCheckParity(t *testing.T) {
 func linuxFixture(t *testing.T, root, user string) {
 	t.Helper()
 	writeFile(t, root, "packaging/linux/install.sh", "APP_NAME=\"app\"\n")
-	writeFile(t, root, "packaging/linux/ydisks-xianyu-helper.service",
+	writeFile(t, root, "packaging/linux/xile-xianyu-helper.service",
 		"User="+user+"\nGroup="+user+"\nWorkingDirectory=/var/lib/app\nEnvironmentFile=/etc/app/config.env\nReadWritePaths=/var/log/app\nExecStart=/opt/app/xianyu-server\n")
 }
 
@@ -174,7 +174,7 @@ func TestCheckLinuxPackaging(t *testing.T) {
 	if got, _ = checkLinuxPackaging(root); len(got) != 2 {
 		t.Fatalf("User 与 Group 都应报告: %v", got)
 	}
-	writeFile(t, root, "packaging/linux/ydisks-xianyu-helper.service", "User=app\n")
+	writeFile(t, root, "packaging/linux/xile-xianyu-helper.service", "User=app\n")
 	if got, _ = checkLinuxPackaging(root); len(got) < 2 {
 		t.Fatalf("缺少 Group 与路径应报告: %v", got)
 	}

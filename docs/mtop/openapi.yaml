@@ -1,9 +1,9 @@
 openapi: 3.0.3
 info:
-  title: 闲鱼 MTOP H5 接口文档（Ydisks 闲鱼助手实际调用面）
+  title: 闲鱼 MTOP H5 接口文档（Xile 闲鱼助手实际调用面）
   version: 1.0.0
   description: |
-    本文档整理 Ydisks 闲鱼助手**实际调用**的全部闲鱼 / 淘系 MTOP H5 网关接口，内容来自 `internal/xianyu/mtop`
+    本文档整理 Xile 闲鱼助手**实际调用**的全部闲鱼 / 淘系 MTOP H5 网关接口，内容来自 `internal/xianyu/mtop`
     与 `internal/xianyu/qrlogin` 的请求构造与响应解析代码，并非平台官方文档。
 
     > 这是**平台上游接口**的逆向整理，不是本项目对外提供的 HTTP API。项目自身 `/api/v1/**` 的唯一契约是
@@ -66,8 +66,8 @@ info:
     `origin: https://www.goofish.com`、`referer`（各接口不同，见下）、`cookie`，以及浏览器指纹类头
     （`user-agent`、`sec-ch-ua*`、`sec-fetch-*`、`accept-language` 等）。
   contact:
-    name: Ydisks 闲鱼助手
-    url: https://github.com/Ydisks/Ydisks-Xianyu-Helper
+    name: Xile 闲鱼助手
+    url: https://github.com/Xile/Xile-Xianyu-Helper
 servers:
   - url: https://h5api.m.goofish.com
     description: 闲鱼 MTOP H5 网关（生产）

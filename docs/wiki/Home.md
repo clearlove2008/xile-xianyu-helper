@@ -1,4 +1,4 @@
-# Ydisks Xianyu Helper Wiki
+# Xile Xianyu Helper Wiki
 
 [中文](Home.zh-CN) | English
 
@@ -23,7 +23,7 @@ For desktop packages, the management URL is `http://127.0.0.1:59188`. Windows an
 
 The sidebar footer shows the running version and short commit ID. Source runs normally show `dev`/`unknown`; release packages and Docker images show build-injected version and commit information (the commit ID is shown with at most its first 12 characters; a release version such as `1.2.3` is displayed as `v1.2.3`).
 
-Windows registers the `YdisksXianyuHelper` service. macOS provides Apple Silicon (`arm64`) and Intel (`amd64`) packages and registers `com.ydisks.xianyu-helper.server` and `com.ydisks.xianyu-helper.tray`. Linux packages are distributed for `amd64` and `arm64`; `sudo ./install.sh` registers `ydisks-xianyu-helper.service`. All three package types prepare matching Chromium during the build and do not depend on a Debian repository browser.
+Windows registers the `XileXianyuHelper` service. macOS provides Apple Silicon (`arm64`) and Intel (`amd64`) packages and registers `com.xile.xianyu-helper.server` and `com.xile.xianyu-helper.tray`. Linux packages are distributed for `amd64` and `arm64`; `sudo ./install.sh` registers `xile-xianyu-helper.service`. All three package types prepare matching Chromium during the build and do not depend on a Debian repository browser.
 
 ## Read these pages first
 

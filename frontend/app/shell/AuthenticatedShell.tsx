@@ -69,8 +69,8 @@ const PublishLocationField = lazy(/* 发货地字段随资源库发布弹窗按�
 // PublishCategoryField 是按需加载的类目字段。
 const PublishCategoryField = lazy(/* 类目字段随资源库模板编辑器按需加载。 */ () => import('../features/items/components/PublishCategoryField'));
 const ResourceLibrary = lazy(/* ResourceLibrary 页面按路由激活时加载。 */ () => import('../features/library/pages/ResourceLibrary'));
-// PanSouSearch 是按需加载的网盘资源搜索页面。
-const PanSouSearch = lazy(/* 网盘搜索页面按路由激活时加载。 */ () => import('../features/pansou/pages/PanSouSearch'));
+// ResourceSearch 是按需加载的网盘资源搜索页面。
+const ResourceSearch = lazy(/* 网盘搜索页面按路由激活时加载。 */ () => import('../features/search/pages/ResourceSearch'));
 // NetdiskTransfer 是按需加载的网盘转存页面。
 const NetdiskTransfer = lazy(/* 网盘转存页面按路由激活时加载。 */ () => import('../features/netdisk/pages/NetdiskTransfer'));
 // NetdiskAccounts 是按需加载的网盘账号管理页面。
@@ -156,7 +156,7 @@ export const AppContent: React.FC<AppContentProps> = ({
       />;
       case 'delivery-templates': return <DeliveryTemplates libraryImageChooser={LibraryImageChooser} />;
       case 'library': return <ResourceLibrary onBatchStarted={onNavigateToItems} locationField={PublishLocationField} categoryField={PublishCategoryField} />;
-      case 'pansou': return <PanSouSearch />;
+      case 'search': return <ResourceSearch />;
       case 'netdisk-transfer': return <NetdiskTransfer />;
       case 'netdisk-accounts': return <NetdiskAccounts />;
       case 'opportunity': return <OpportunityPage />;

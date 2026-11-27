@@ -1,4 +1,4 @@
-# Ydisks闲鱼助手 Wiki（中文）
+# 喜乐闲鱼助手 Wiki（中文）
 
 [English](Home) | 中文
 
@@ -28,10 +28,10 @@
 管理后台侧边栏底部会显示当前运行版本和短提交号。源码运行默认显示 `dev`/`unknown`；正式安装包和
 Docker 镜像会显示构建时注入的版本与提交信息（提交号最多显示前 12 位；正式版本号形如 `1.2.3` 时显示为 `v1.2.3`）。
 
-Windows 安装包注册 `YdisksXianyuHelper` 服务；macOS 安装包分别提供 Apple Silicon（arm64）和
-Intel（amd64）版本，并注册 `com.ydisks.xianyu-helper.server` 与
-`com.ydisks.xianyu-helper.tray` 两个 LaunchAgent。Linux 安装包按 amd64/arm64 分发，执行
-`sudo ./install.sh` 后注册 `ydisks-xianyu-helper.service`。三种独立安装包都在构建阶段准备匹配架构
+Windows 安装包注册 `XileXianyuHelper` 服务；macOS 安装包分别提供 Apple Silicon（arm64）和
+Intel（amd64）版本，并注册 `com.xile.xianyu-helper.server` 与
+`com.xile.xianyu-helper.tray` 两个 LaunchAgent。Linux 安装包按 amd64/arm64 分发，执行
+`sudo ./install.sh` 后注册 `xile-xianyu-helper.service`。三种独立安装包都在构建阶段准备匹配架构
 的 Chromium，不依赖 Debian 仓库版本。
 
 ## 先读这些页面

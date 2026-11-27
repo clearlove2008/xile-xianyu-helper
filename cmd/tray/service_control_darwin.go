@@ -14,7 +14,7 @@ import (
 // serviceAction 封装service动作业务协调。
 func serviceAction(action string) error {
 	// label 用于本次流程后续判断的label
-	label := envOr("XIANYU_SERVICE_NAME", "com.ydisks.xianyu-helper.server")
+	label := envOr("XIANYU_SERVICE_NAME", "com.xile.xianyu-helper.server")
 	// uid 用于本次流程后续判断的uid
 	uid := fmt.Sprint(os.Getuid())
 	// domain 用于本次流程后续判断的domain
@@ -110,7 +110,7 @@ func logDirectoryPath() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("获取用户目录失败: %w", err)
 	}
-	return filepath.Join(home, "Library", "Logs", "YdisksXianyuHelper"), nil
+	return filepath.Join(home, "Library", "Logs", "XileXianyuHelper"), nil
 }
 
 // launchctl 封装launchctl业务协调。

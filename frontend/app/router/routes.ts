@@ -1,5 +1,5 @@
 /** AppRoute 表示认证后可通过浏览器地址直接访问的业务页面。 */
-export type AppRoute = 'dashboard' | 'accounts' | 'chat' | 'orders' | 'sales' | 'cards' | 'items' | 'rules' | 'delivery-templates' | 'library' | 'pansou' | 'netdisk-transfer' | 'netdisk-accounts' | 'opportunity' | 'studio' | 'workflow' | 'notifications' | 'logs' | 'settings';
+export type AppRoute = 'dashboard' | 'accounts' | 'chat' | 'orders' | 'sales' | 'cards' | 'items' | 'rules' | 'delivery-templates' | 'library' | 'search' | 'netdisk-transfer' | 'netdisk-accounts' | 'opportunity' | 'studio' | 'workflow' | 'notifications' | 'logs' | 'settings';
 
 /** routeByPath 保存浏览器地址到业务路由标识的唯一映射，避免页面各自解析 URL。 */
 export const routeByPath: Readonly<Record<string, AppRoute>> = {
@@ -13,7 +13,7 @@ export const routeByPath: Readonly<Record<string, AppRoute>> = {
   '/app/rules': 'rules',
   '/app/delivery-templates': 'delivery-templates',
   '/app/library': 'library',
-  '/app/pansou': 'pansou',
+  '/app/search': 'search',
   '/app/netdisk-transfer': 'netdisk-transfer',
   '/app/netdisk-accounts': 'netdisk-accounts',
   '/app/opportunity': 'opportunity',

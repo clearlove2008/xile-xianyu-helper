@@ -17,5 +17,5 @@ func quitTray() error { return nil }
 
 // logDirectoryPath 封装logDirectory路径业务协调。
 func logDirectoryPath() (string, error) {
-	return filepath.Join("/var", "log", "ydisks-xianyu-helper"), nil
+	return filepath.Join("/var", "log", "xile-xianyu-helper"), nil
 }

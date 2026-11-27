@@ -338,7 +338,7 @@ func checkLinuxPackaging(root string) ([]string, error) {
 		return nil, fmt.Errorf("读取 install.sh 失败: %w", err)
 	}
 	// unitRaw、unitErr 分别是 systemd 单元字节和读取失败原因。
-	unitRaw, unitErr := os.ReadFile(filepath.Join(root, "packaging/linux/ydisks-xianyu-helper.service"))
+	unitRaw, unitErr := os.ReadFile(filepath.Join(root, "packaging/linux/xile-xianyu-helper.service"))
 	if unitErr != nil {
 		return nil, fmt.Errorf("读取 systemd 单元失败: %w", unitErr)
 	}

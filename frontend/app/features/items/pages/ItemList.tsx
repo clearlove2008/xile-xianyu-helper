@@ -29,7 +29,7 @@ const formatItemPrice = (price?: string) => {
 };
 
 // ITEM_VIEW_MODE_KEY 是浏览器本地保存商品页视图偏好的存储键，只属于当前浏览器，不写入服务端。
-const ITEM_VIEW_MODE_KEY = 'ydisks.items.view_mode';
+const ITEM_VIEW_MODE_KEY = 'xile.items.view_mode';
 
 // ItemViewMode 是商品页的两种展示模式：卡片或列表。
 type ItemViewMode = 'card' | 'list';

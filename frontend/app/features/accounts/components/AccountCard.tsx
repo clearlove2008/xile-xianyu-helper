@@ -4,7 +4,7 @@ import type { AccountDetail } from '../api';
 import { accountRuntimePresentation } from '../runtime';
 
 // RISK_GUIDE_URL 是风控处理教程（issue 92）的公开链接，说明如何获取过风控的 Cookie。
-const RISK_GUIDE_URL = 'https://github.com/Christ9038/Ydisks-Xianyu-Helper/issues/92';
+const RISK_GUIDE_URL = 'https://github.com/clearlove2008/xile-xianyu-helper/issues/92';
 
 // AccountCardProps 描述账号卡片展示所需的数据和动作。
 export interface AccountCardProps {

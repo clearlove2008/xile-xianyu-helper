@@ -57,7 +57,7 @@ type serverOptions struct {
 // defaultDBPath 保存默认 SQLite 数据库的相对路径；桌面运行时会根据 dataDir 重定位。
 const (
 	defaultDBPath      = "data/xianyu_data.db"
-	userDataDirName    = "YdisksXianyuHelper"
+	userDataDirName    = "XileXianyuHelper"
 	defaultDataKeyName = "data-key"
 	// httpShutdownTimeout 限制 HTTP 请求排空和 Server 自有后台任务等待时长。
 	httpShutdownTimeout = 10 * time.Second
@@ -167,7 +167,7 @@ func main() {
 	run := func(ctx context.Context) error { return runServer(ctx, opts) }
 	if opts.service {
 		// err 表示平台注册或运行服务失败。
-		if err := runPlatformService("YdisksXianyuHelper", run); err != nil {
+		if err := runPlatformService("XileXianyuHelper", run); err != nil {
 			fmt.Fprintf(os.Stderr, "服务运行失败: %s\n", logsafe.Error(err))
 			os.Exit(1)
 		}

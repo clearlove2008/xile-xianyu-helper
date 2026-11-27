@@ -316,7 +316,7 @@ export const useChat = (): UseChatResult => {
         setPlatformHasMoreContacts(Object.fromEntries(sessionPages.map(/* 当前回调记录每个账号平台联系人分页状态。 */ ([id, page]) => [id, page.platform_has_more ?? page.has_more])));
         setStoredHasMoreContacts(Object.fromEntries(sessionPages.map(/* 当前回调记录每个账号本地联系人分页状态。 */ ([id, page]) => [id, page.stored_has_more ?? page.has_more])));
         // stored 已保存数据。
-        const stored = window.localStorage.getItem('ydisks.chat.account.v1') || '';
+        const stored = window.localStorage.getItem('xile.chat.account.v1') || '';
         // first 首项。
         const first = enabled.some(/* 当前回调处理集合中的单个元素。 */ account => account.id === stored) ? stored : enabled[0]?.id || '';
         setActiveAccountID(first);
@@ -364,7 +364,7 @@ export const useChat = (): UseChatResult => {
 
   useEffect(/* 当前回调同步 React 副作用和资源生命周期。 */ () => {
     if (!activeAccountID) return;
-    window.localStorage.setItem('ydisks.chat.account.v1', activeAccountID);
+    window.localStorage.setItem('xile.chat.account.v1', activeAccountID);
     // sessions 会话列表。
     const sessions = sessionsByAccount[activeAccountID] || [];
     if (suppressAutoSelectAccountRef.current === activeAccountID && !activeChatRef.current) return;

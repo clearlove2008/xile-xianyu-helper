@@ -30,7 +30,7 @@
 
 ## 报告问题
 
-请通过 GitHub 私下联系维护者 [@Christ9038](https://github.com/Christ9038)，说明相关链接、
+请通过 GitHub 私下联系维护者 [@clearlove2008](https://github.com/clearlove2008)，说明相关链接、
 时间、行为和可验证证据。不要在公开 Issue 中发布个人信息、真实凭证或安全漏洞细节；安全问题
 请优先阅读 [安全策略](SECURITY.md)。
 

@@ -60,5 +60,5 @@ it('中途缺失全文时停止该商品和后续商品，不用摘要替代正�
   expect(get).toHaveBeenCalledTimes(2);
   expect(postForm).toHaveBeenCalledTimes(2);
   expect(screen.getByRole('status').textContent).toContain('未获取到完整原文');
-  expect(localStorage.getItem('ydisks.seller-publish.v1:A:3')).toBeNull();
+  expect(localStorage.getItem('xile.seller-publish.v1:A:3')).toBeNull();
 });

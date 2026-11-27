@@ -16,7 +16,7 @@ import (
 var errRowsIteration = errors.New("rows iteration interrupted")
 
 // rowsIterationDriverName 是只供本测试使用的 database/sql 驱动注册名称。
-const rowsIterationDriverName = "ydisks-rows-iteration-error"
+const rowsIterationDriverName = "xile-rows-iteration-error"
 
 // rowsIterationRegisterOnce 保证并发测试执行时仅注册一次测试驱动。
 var rowsIterationRegisterOnce sync.Once

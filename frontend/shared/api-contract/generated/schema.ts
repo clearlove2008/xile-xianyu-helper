@@ -2379,15 +2379,15 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/pansou/options": {
+    "/api/v1/search/options": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** getApiV1PansouOptions */
-        get: operations["getApiV1PansouOptions"];
+        /** getApiV1SearchOptions */
+        get: operations["getApiV1SearchOptions"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2396,18 +2396,18 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/pansou/search": {
+    "/api/v1/search/search": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** getApiV1PansouSearch */
-        get: operations["getApiV1PansouSearch"];
+        /** getApiV1SearchSearch */
+        get: operations["getApiV1SearchSearch"];
         put?: never;
-        /** postApiV1PansouSearch */
-        post: operations["postApiV1PansouSearch"];
+        /** postApiV1SearchSearch */
+        post: operations["postApiV1SearchSearch"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4499,7 +4499,7 @@ export interface components {
         } & {
             [key: string]: unknown;
         };
-        PansouMergedLink: {
+        SearchMergedLink: {
             url: string;
             password: string;
             note: string;
@@ -4507,25 +4507,25 @@ export interface components {
             source?: string;
             images?: string[];
         };
-        PansouSearchResponse: {
+        SearchSearchResponse: {
             total: number;
             results?: {
                 [key: string]: unknown;
             }[];
             merged_by_type?: {
-                [key: string]: components["schemas"]["PansouMergedLink"][];
+                [key: string]: components["schemas"]["SearchMergedLink"][];
             };
         };
-        PansouCloudType: {
+        SearchCloudType: {
             key: string;
             label: string;
         };
-        PansouOptions: {
+        SearchOptions: {
             enabled: boolean;
             enable_tg: boolean;
             channels?: string[] | null;
             plugins: string[];
-            cloud_types: components["schemas"]["PansouCloudType"][];
+            cloud_types: components["schemas"]["SearchCloudType"][];
             proxy_configured: boolean;
         };
         StudioModelRequest: {
@@ -4588,11 +4588,11 @@ export interface components {
             fallback: boolean;
             prompt: string;
         };
-        PansouSearchFilter: {
+        SearchSearchFilter: {
             include?: string[];
             exclude?: string[];
         };
-        PansouSearchRequest: {
+        SearchSearchRequest: {
             kw: string;
             channels?: string[];
             plugins?: string[];
@@ -4604,7 +4604,7 @@ export interface components {
             ext?: {
                 [key: string]: unknown;
             };
-            filter?: components["schemas"]["PansouSearchFilter"];
+            filter?: components["schemas"]["SearchSearchFilter"];
         };
         OpportunitySearchResponse: {
             success?: boolean;
@@ -17228,7 +17228,7 @@ export interface operations {
             };
         };
     };
-    getApiV1PansouOptions: {
+    getApiV1SearchOptions: {
         parameters: {
             query?: never;
             header?: never;
@@ -17243,7 +17243,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PansouOptions"];
+                    "application/json": components["schemas"]["SearchOptions"];
                 };
             };
             /** @description 统一错误响应 */
@@ -17266,7 +17266,7 @@ export interface operations {
             };
         };
     };
-    getApiV1PansouSearch: {
+    getApiV1SearchSearch: {
         parameters: {
             query: {
                 kw: string;
@@ -17292,7 +17292,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PansouSearchResponse"];
+                    "application/json": components["schemas"]["SearchSearchResponse"];
                 };
             };
             /** @description 统一错误响应 */
@@ -17333,7 +17333,7 @@ export interface operations {
             };
         };
     };
-    postApiV1PansouSearch: {
+    postApiV1SearchSearch: {
         parameters: {
             query?: never;
             header?: never;
@@ -17342,7 +17342,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["PansouSearchRequest"];
+                "application/json": components["schemas"]["SearchSearchRequest"];
             };
         };
         responses: {
@@ -17352,7 +17352,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PansouSearchResponse"];
+                    "application/json": components["schemas"]["SearchSearchResponse"];
                 };
             };
             /** @description 统一错误响应 */

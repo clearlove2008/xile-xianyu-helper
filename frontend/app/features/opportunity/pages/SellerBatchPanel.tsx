@@ -37,8 +37,8 @@ export default function SellerBatchPanel({ items, accounts, settings, onRunning,
     const tasks = new Map<string, { item: OpportunityItem; account: string }>(items.flatMap(item => targets.map(account => [`${account}:${item.itemId}`, { item, account }] as const)));
     try {
       await runPublishBatch([...tasks.keys()], {
-        get: key => localStorage.getItem(`ydisks.seller-publish.v1:${key}`),
-        set: (key, value) => localStorage.setItem(`ydisks.seller-publish.v1:${key}`, value),
+        get: key => localStorage.getItem(`xile.seller-publish.v1:${key}`),
+        set: (key, value) => localStorage.setItem(`xile.seller-publish.v1:${key}`, value),
       }, async key => {
         // task 是启动时冻结的目标，不读取用户后续切换的搜索结果。
         const task = tasks.get(key)!;
@@ -72,7 +72,7 @@ export default function SellerBatchPanel({ items, accounts, settings, onRunning,
         <button type="button" disabled={running || busy} className="text-xs text-slate-500 underline" onClick={() => {
       if (!window.confirm('请先核对平台商品列表，确认这些待处理商品没有发布成功。仅解除当前所选商品和账号的待核对记录，成功记录不会清除。继续？')) return;
       for (const item of items) for (const account of targets) {
-        const key = `ydisks.seller-publish.v1:${account}:${item.itemId}`;
+        const key = `xile.seller-publish.v1:${account}:${item.itemId}`;
         if (localStorage.getItem(key) === 'pending') localStorage.removeItem(key);
       }
       setMessages(previous => [...previous, '所选任务的待核对记录已解除，可重新发起']);

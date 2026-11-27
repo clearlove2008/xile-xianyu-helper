@@ -14,7 +14,7 @@ func TestLogDirectoryPathUsesHomeLibraryLogs(t *testing.T) {
 	t.Setenv("HOME", home)
 	// directory、err 是解析出的日志目录。
 	directory, err := logDirectoryPath()
-	if err != nil || directory != home+"/Library/Logs/YdisksXianyuHelper" {
+	if err != nil || directory != home+"/Library/Logs/XileXianyuHelper" {
 		t.Fatalf("directory=%q err=%v", directory, err)
 	}
 	t.Setenv("HOME", "")

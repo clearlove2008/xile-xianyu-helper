@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-APP_NAME="ydisks-xianyu-helper"
+APP_NAME="xile-xianyu-helper"
 SERVICE_NAME="$APP_NAME.service"
 
 if [[ "$(id -u)" -ne 0 ]]; then

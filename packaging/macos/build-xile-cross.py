@@ -308,7 +308,7 @@ chown "$CONSOLE_USER" "$AGENT"
 chmod 0644 "$AGENT"
 
 # 清理旧品牌或旧版服务，避免升级后两套服务同时监听。
-for old_label in com.ydisks.xianyu-helper.server com.christ.ydisks-xianyu-helper.server; do
+for old_label in com.xile.xianyu-helper.server com.christ.xile-xianyu-helper.server; do
   launchctl bootout "gui/$UID_VALUE/$old_label" >/dev/null 2>&1 || true
   rm -f "$AGENT_DIR/$old_label.plist"
 done

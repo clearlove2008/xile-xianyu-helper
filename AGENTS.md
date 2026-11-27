@@ -21,7 +21,7 @@ The active application contains:
 ## Common commands
 
 ```bash
-cd /Users/christ/Workspace/git/xianyu/Ydisks-Xianyu-Helper
+cd /Users/christ/Workspace/git/xianyu/Xile-Xianyu-Helper
 
 make build      # go build ./cmd/server
 make test       # go test ./...
@@ -84,7 +84,7 @@ go test ./internal/db -run TestMultiDB -v
 Build the frontend:
 
 ```bash
-cd /Users/christ/Workspace/git/xianyu/Ydisks-Xianyu-Helper/frontend
+cd /Users/christ/Workspace/git/xianyu/Xile-Xianyu-Helper/frontend
 npm install
 npm run build
 ```
@@ -315,14 +315,14 @@ until their recorded phase is completed; agents MUST NOT add new violations.
 The application defaults to port `59188`; commands using `-addr :59188` listen on all interfaces. Desktop
 packages explicitly bind the server to `127.0.0.1:59188` and keep the server and tray as separate processes:
 
-- Windows installs the `YdisksXianyuHelper` Windows Service and starts `xianyu-tray.exe` for the current
+- Windows installs the `XileXianyuHelper` Windows Service and starts `xianyu-tray.exe` for the current
   user. The installer grants the interactive user only service status/start/stop rights, so tray service
   actions do not launch UAC prompts after installation. Service configuration and deletion remain admin-only.
-- macOS registers `com.ydisks.xianyu-helper.server` and `com.ydisks.xianyu-helper.tray` LaunchAgents.
-  The app is `/Applications/Ydisks闲鱼助手/Ydisks闲鱼助手.app`, and the tray executable is named
-  `Ydisks闲鱼助手` with `LSUIElement=true` so it does not appear in the Dock.
+- macOS registers `com.xile.xianyu-helper.server` and `com.xile.xianyu-helper.tray` LaunchAgents.
+  The app is `/Applications/喜乐闲鱼助手/喜乐闲鱼助手.app`, and the tray executable is named
+  `喜乐闲鱼助手` with `LSUIElement=true` so it does not appear in the Dock.
 - Linux packages are architecture-specific tar archives. `install.sh` must run as root on a native matching
-  architecture, installs `ydisks-xianyu-helper.service`, and keeps data in `/var/lib/ydisks-xianyu-helper`.
+  architecture, installs `xile-xianyu-helper.service`, and keeps data in `/var/lib/xile-xianyu-helper`.
 
 All desktop packages contain the matching Playwright driver, Chromium and headless shell. Do not add a
 Debian Chromium package or download a second browser during installation. The Docker final image uses
@@ -374,11 +374,11 @@ packaging/macos/build-pkg.sh 0.0.0-local "$PWD/dist/macos" arm64
 服务能使用包内 runtime 启动并访问健康检查；可用临时端口验证：
 
 ```bash
-runtime_app="$PWD/dist/macos/pkgroot-arm64/Applications/Ydisks闲鱼助手/Ydisks闲鱼助手.app"
-mkdir -p /tmp/ydisks-local-data
+runtime_app="$PWD/dist/macos/pkgroot-arm64/Applications/喜乐闲鱼助手/喜乐闲鱼助手.app"
+mkdir -p /tmp/xile-local-data
 "$runtime_app/Contents/Helpers/xianyu-server" \
   -addr 127.0.0.1:59189 \
-  -workdir /tmp/ydisks-local-data \
+  -workdir /tmp/xile-local-data \
   -playwright-runtime-root "$runtime_app/Contents/Resources/playwright-runtime"
 curl -fsS http://127.0.0.1:59189/health
 ```

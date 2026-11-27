@@ -31,7 +31,7 @@
 | `go test ./internal/adapter ./internal/application/account -run 'TestCatalogPatch|TestSettings' -count=1` | 包含最终补充的全字段适配测试，通过 |
 | `npm run typecheck --prefix frontend` | 通过 |
 | `npm run build --prefix frontend` | 通过，已同步 `internal/webui/static` 嵌入资源 |
-| `go build -o /tmp/ydisks-fix-server ./cmd/server` | 通过 |
+| `go build -o /tmp/xile-fix-server ./cmd/server` | 通过 |
 | `docker build -f Dockerfile.debian13 ...` | 使用匹配的 Linux arm64 runtime 缓存完成完整镜像构建；镜像内 headless Chromium 启动、服务迁移至版本 49、`/health` 的 `status/database` 均为 `ok`。首次无缓存构建的 CDN 下载曾因本机限速停滞，随后使用同版本缓存完成正式路径验证 |
 | `node frontend/scripts/check-comments.mjs --mode check --root frontend` | 前端全部通过 |
 | `git diff --check` | 通过 |
@@ -40,7 +40,7 @@
 
 初次检查曾发现本次开始前已有未提交修改的三个文件存在 24 项注释缺项；已补充准确中文语义注释并通过最终门禁，没有新增 baseline 或降低规则。
 
-首次定向 race 发现新账号测试继承的串行替身在解锁计数上发生竞争。测试已覆盖为真实凭证互斥锁，最终连续 30 轮通过。首次 `make cover` 与其他全量检查并行时，既有 `TestOnPasswordLoginRefreshConcurrentCallersShareResult` 的 5 毫秒 Promise 预算超时；没有修改该测试、增加预算或放宽断言，随后独立重跑 `make cover` 全部通过。初轮失败保留在 `/tmp/ydisks-fix-race.log` 与 `/tmp/ydisks-fix-cover.log`，最终覆盖率日志在 `/tmp/ydisks-fix-cover-final.log`。
+首次定向 race 发现新账号测试继承的串行替身在解锁计数上发生竞争。测试已覆盖为真实凭证互斥锁，最终连续 30 轮通过。首次 `make cover` 与其他全量检查并行时，既有 `TestOnPasswordLoginRefreshConcurrentCallersShareResult` 的 5 毫秒 Promise 预算超时；没有修改该测试、增加预算或放宽断言，随后独立重跑 `make cover` 全部通过。初轮失败保留在 `/tmp/xile-fix-race.log` 与 `/tmp/xile-fix-cover.log`，最终覆盖率日志在 `/tmp/xile-fix-cover-final.log`。
 
 ## 范围与环境例外
 

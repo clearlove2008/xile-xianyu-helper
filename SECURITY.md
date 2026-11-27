@@ -1,6 +1,6 @@
 # 安全策略
 
-Ydisks 闲鱼助手会处理账号登录状态、Cookie、Token、管理员密码、数据库连接信息、AI 或通知
+Xile 闲鱼助手会处理账号登录状态、Cookie、Token、管理员密码、数据库连接信息、AI 或通知
 渠道凭证，以及订单和卡密等敏感数据。请先确认你有权测试相关账号和环境，并遵守适用的法律、
 平台规则和账号授权范围。
 
@@ -20,7 +20,7 @@ Ydisks 闲鱼助手会处理账号登录状态、Cookie、Token、管理员密�
 
 ## 报告方式
 
-请通过 GitHub 私下联系维护者 [@Christ9038](https://github.com/Christ9038)，标题建议包含
+请通过 GitHub 私下联系维护者 [@clearlove2008](https://github.com/clearlove2008)，标题建议包含
 “安全问题”。报告应尽量包含：
 
 - 受影响的版本、提交号或发布包；

@@ -25,7 +25,7 @@ import (
 	"xianyu-go/internal/db"
 	"xianyu-go/internal/logging"
 	"xianyu-go/internal/netdisk"
-	"xianyu-go/internal/pansou"
+	"xianyu-go/internal/search"
 	appversion "xianyu-go/internal/version"
 	"xianyu-go/internal/webui"
 	"xianyu-go/internal/workflow"
@@ -89,10 +89,10 @@ type Server struct {
 
 	loginLimiter     *loginFailureLimiter
 	initializationMu sync.Mutex
-	// pansouEngine 是网盘搜索的进程级引擎，首次搜索时惰性完成网络与缓存初始化。
-	pansouEngine *pansou.Engine
-	// pansouBaseOptions 缓存默认搜索配置，避免每次请求重复枚举插件。
-	pansouBaseOptions *pansou.Options
+	// searchEngine 是网盘搜索的进程级引擎，首次搜索时惰性完成网络与缓存初始化。
+	searchEngine *search.Engine
+	// searchBaseOptions 缓存默认搜索配置，避免每次请求重复枚举插件。
+	searchBaseOptions *search.Options
 	// workflowEngineRef 是商品工作流引擎引用，由组合根装配；HTTP 层只做任务 CRUD 与触发。
 	workflowEngineRef *workflow.Engine
 	// netdiskAccountsRef 与 netdiskServiceRef 是网盘转存模块的 repository 与服务引用。
@@ -132,7 +132,7 @@ func New(dependencies Dependencies) (*Server, error) {
 		loginLimiter:       newLoginFailureLimiter(),
 		taskRegistry:       newTaskRegistry(),
 		backgroundDone:     closedSignal(),
-		pansouEngine:       pansou.NewEngine(),
+		searchEngine:       search.NewEngine(),
 		workflowEngineRef:  dependencies.WorkflowEngine,
 		netdiskAccountsRef: dependencies.NetdiskAccounts,
 		netdiskServiceRef:  dependencies.NetdiskService,
@@ -212,7 +212,7 @@ func (s *Server) Router() chi.Router {
 		// 用户
 		s.mountUserReal(r)
 		// 网盘资源搜索
-		s.mountVersionedPansouRoutes(r)
+		s.mountVersionedSearchRoutes(r)
 		// AI 出图工作台
 		s.mountVersionedStudioRoutes(r)
 		// 商机挖掘（搜索闲鱼在售商品）

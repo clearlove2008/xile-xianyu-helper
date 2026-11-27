@@ -1,6 +1,6 @@
 import { ArrowRight,Loader2,Lock,ShieldCheck,User } from 'lucide-react';
 import React,{ useState } from 'react';
-import { YdisksBrandIcon } from '../../../../shared/ui/YdisksLogo';
+import { XileBrandIcon } from '../../../../shared/ui/XileLogo';
 import { useSession } from '../../../providers/SessionProvider';
 
 /** SessionGate 在会话校验完成前显示加载状态，并承载首次初始化和管理员登录表单。 */
@@ -82,7 +82,7 @@ export const SessionGate: React.FC = () => {
       <section className="w-full max-w-lg rounded-xl border border-white bg-white/80 p-8 shadow-panel backdrop-blur-3xl md:p-12">
         <header className="mb-8 text-center">
           <div className="mx-auto mb-6 flex justify-center">
-            <YdisksBrandIcon sizeClass="h-24 w-24" />
+            <XileBrandIcon sizeClass="h-24 w-24" />
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900">{heading}</h1>
           <p className="mt-2 font-medium text-gray-600">{description}</p>

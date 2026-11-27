@@ -2,6 +2,14 @@
 
 > 一个把「找品 → 上架 → 客服 → 发货 → 售后」串成一条自动流水线的闲鱼运营工作台。Go + React 单二进制交付，Windows / macOS 提供免环境一键安装包。
 
+## 加群交流
+
+<img src="docs/images/wechat-group-qr.png" alt="微信交流群二维码" width="200">
+
+> **加群请说明来意**：申请时请备注「喜乐闲鱼助手 + 你的使用场景」，例如「喜乐闲鱼助手 - 想了解商机挖掘」或「喜乐闲鱼助手 - 已购买，咨询安装」。不写来意的不予通过，避免广告引流。
+>
+> 群里可以交流：安装与使用问题、功能建议、闲鱼运营经验。**软件使用问题优先在群里问，回复更快。**
+
 [![Go](https://img.shields.io/badge/Go-1.26-00ADD8?logo=go&logoColor=white)](go.mod)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](frontend/package.json)
 [![SQLite / MySQL / PostgreSQL](https://img.shields.io/badge/SQLite%20%7C%20MySQL%20%7C%20PostgreSQL-4479A1)](internal/db/migrations/)
@@ -41,14 +49,14 @@
 - **工作流任务**：把「搜索 → 筛选 → 一键上架」编排成可复用的工作流，任务状态持久化到 `00064_workflow_tasks.sql` 迁移。
 - **一键上架**：从商机结果直接勾选商品、指定账号批量发布，走与手动发布相同的 MTOP 通道。
 
-### 2. 全网聚合搜索（PanSou 内嵌）
+### 2. 全网聚合搜索
 
-把开源项目 PanSou 以**内嵌合并**方式编译进同一个二进制，不需要另起服务、不需要统一登录：
+多源搜索能力**内嵌编译进同一个二进制**，不需要另起服务、不需要统一登录：
 
 - **75 个搜索插件**：覆盖常见网盘搜索站、影视、软件、学习资料等频道，插件自注册，统一结果模型。
 - **Telegram 频道搜索**：支持多频道配置，整词命中过滤（搜「八仙」不会再带出一堆无关资源），标题归属正确。
 - **学霸盘插件**：对 `xuebapan.com` 做 HTML 搜索，5 页并发抓取，单次最多返回 **100 条**结果；附带详情页解析、提取码识别与促销关键词过滤。
-- 搜索结果在「PanSou 搜索」页面按插件来源分类展示，可单独启停频道与插件。
+- 搜索结果在「网盘搜索」页面按来源分类展示，可单独启停频道与插件。
 
 ### 3. 网盘转存与分享（夸克 + 百度）
 
@@ -104,7 +112,7 @@
 | 账号管理 | 多账号登录态、分组备注、自动任务设置 |
 | 商机挖掘 | 商品搜索、多图详情、筛选后一键上架 |
 | 商品工作流 | 编排搜索到上架的任务链，查看执行记录 |
-| PanSou 搜索 | 75 个插件 + TG 频道 + 学霸盘聚合搜索 |
+| Search 搜索 | 75 个插件 + TG 频道 + 学霸盘聚合搜索 |
 | 网盘转存 | 夸克/百度账号、扫码登录、转存并生成分享链接 |
 | 在线聊天 | 实时会话、快捷回复、AI 回复 |
 | 订单管理 | 订单同步、手动发货、缺单补录 |
@@ -176,7 +184,7 @@ go run ./cmd/server
 | `XIANYU_ADMIN_PASSWORD` | 首次启动创建的管理员密码 |
 | `BROWSER_HEADLESS` | 浏览器是否无头运行 |
 | `LOG_LEVEL` / `LOG_FORMAT` | 日志级别与格式 |
-| `CHANNELS` | PanSou Telegram 频道列表（逗号分隔） |
+| `CHANNELS` | Search Telegram 频道列表（逗号分隔） |
 
 面板内的运行参数（如 `reshelf_interval_minutes`）在系统设置中可直接修改，无需重启。
 
@@ -199,7 +207,7 @@ golangci-lint run
 
 - `cmd/server` / `cmd/tray` — 服务与托盘入口
 - `internal/xianyu/mtop` — 闲鱼 MTOP 接口（发布、搜索、订单、图片替换等）
-- `internal/pansou` — 聚合搜索与 75 个插件
+- `internal/search` — 聚合搜索与 75 个插件
 - `internal/netdisk` — 夸克 / 百度网盘客户端
 - `internal/automation` / `internal/workflow` — 自动任务与工作流引擎
 - `internal/db/migrations` — 三套数据库的迁移脚本
@@ -210,9 +218,9 @@ golangci-lint run
 
 ## 开源协议与归属
 
-本项目为「喜乐闲鱼助手」发行版，基于 [Ydisks-Xianyu-Helper](https://github.com/Christ9038/Ydisks-Xianyu-Helper)（Apache License 2.0，Copyright 2026 Christ9038）二次开发。上游版权与许可证声明完整保留在 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
+本项目以 Apache License 2.0 发布，是在一个同为 Apache-2.0 授权的开源项目基础上二次开发的发行版。原始版权与许可证声明按协议要求保留在 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
 
-在原始版本之上，本发行版新增或改进了：商机挖掘与商品工作流、一键上架、PanSou 聚合搜索内嵌（含 76 插件与学霸盘）、TG 频道整词过滤、夸克/百度网盘转存、售罄自动补货、多库存降级、发货地兜底、多账号选号发布、商品图片批量替换，以及 Windows / macOS 离线安装包。
+本发行版在其之上新增或改进了：商机挖掘与商品工作流、一键上架、聚合搜索内嵌（含 75 个插件与学霸盘）、TG 频道整词过滤、夸克/百度网盘转存、售罄自动补货、多库存降级、发货地兜底、多账号选号发布、商品图片批量替换，以及 Windows / macOS 离线安装包。
 
 ### 安全与隐私
 

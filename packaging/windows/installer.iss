@@ -1,7 +1,7 @@
 #define AppVersion GetEnv("APP_VERSION")
-#define AppPublisher "Christ9038"
+#define AppPublisher "clearlove2008"
 #define AppExeName "xianyu-server.exe"
-#define AppDataDir "{commonappdata}\YdisksXianyuHelper"
+#define AppDataDir "{commonappdata}\XileXianyuHelper"
 #define RepoRoot AddBackslash(SourcePath) + "..\.."
 #define WindowsDistDir AddBackslash(RepoRoot) + "dist\windows"
 #define WindowsRuntimeDir AddBackslash(WindowsDistDir) + "playwright-runtime\amd64"
@@ -15,7 +15,7 @@ AppVersion={#AppVersion}
 AppPublisher={#AppPublisher}
 DefaultDirName={autopf}\{cm:ProductName}
 DefaultGroupName={cm:ProductName}
-OutputBaseFilename=Ydisks-Xianyu-Helper-Setup
+OutputBaseFilename=Xile-Xianyu-Helper-Setup
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
@@ -30,9 +30,9 @@ Name: "chinesesimplified"; MessagesFile: "{#WindowsLanguageDir}\ChineseSimplifie
 Name: "chinesetraditional"; MessagesFile: "{#WindowsLanguageDir}\ChineseTraditional.isl"
 
 [CustomMessages]
-english.ProductName=Ydisks Xianyu Helper
-chinesesimplified.ProductName=Ydisks闲鱼助手
-chinesetraditional.ProductName=Ydisks闲鱼助手
+english.ProductName=Xile Xianyu Helper
+chinesesimplified.ProductName=喜乐闲鱼助手
+chinesetraditional.ProductName=喜乐闲鱼助手
 english.StartMenuShortcut=Create a Start Menu shortcut
 chinesesimplified.StartMenuShortcut=创建开始菜单快捷方式
 chinesetraditional.StartMenuShortcut=创建开始菜单快捷方式
@@ -60,7 +60,7 @@ Name: "{#AppDataDir}\data"
 Name: "{#AppDataDir}\logs"; Permissions: users-modify
 
 [Registry]
-Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "YdisksXianyuHelperTray"; ValueData: """{app}\xianyu-tray.exe"""; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "XileXianyuHelperTray"; ValueData: """{app}\xianyu-tray.exe"""; Flags: uninsdeletevalue
 
 [Tasks]
 Name: "startmenuicon"; Description: "{cm:StartMenuShortcut}"; GroupDescription: "{cm:ShortcutOptions}"
@@ -88,7 +88,7 @@ begin
     ScriptPath + '" -Mode ' + Mode +
     ' -ExePath "' + ExpandConstant('{app}\xianyu-server.exe') +
     '" -TrayPath "' + ExpandConstant('{app}\xianyu-tray.exe') +
-    '" -WorkDir "' + ExpandConstant('{commonappdata}\YdisksXianyuHelper') +
+    '" -WorkDir "' + ExpandConstant('{commonappdata}\XileXianyuHelper') +
     '" -RuntimeRoot "' + ExpandConstant('{app}\playwright-runtime') + '"';
 end;
 
@@ -121,7 +121,7 @@ begin
     ExpandConstant('{tmp}\service-control.ps1'), 'register') +
     ' -CreatedMarkerPath "' + ExpandConstant('{tmp}\service-created.marker') + '"' +
     ' -FailureLogPath "' +
-      ExpandConstant('{commonappdata}\YdisksXianyuHelper\logs\service-registration-error.log') +
+      ExpandConstant('{commonappdata}\XileXianyuHelper\logs\service-registration-error.log') +
     '"';
 
   if not Exec(PowerShellPath, Parameters, '', SW_HIDE, ewWaitUntilTerminated, ResultCode) then
@@ -137,7 +137,7 @@ begin
     Log('Windows service registration failed, result code: ' + IntToStr(ResultCode));
     SuppressibleMsgBox(
       'Windows 服务注册失败（错误码：' + IntToStr(ResultCode) + '）。' + #13#10 +
-      '详细原因已写入 %ProgramData%\YdisksXianyuHelper\logs\service-registration-error.log。',
+      '详细原因已写入 %ProgramData%\XileXianyuHelper\logs\service-registration-error.log。',
       mbError, MB_OK, IDOK);
     Abort;
   end;

@@ -1,0 +1,22 @@
+[Unit]
+Description=Xile Xianyu Helper
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=xile-xianyu-helper
+Group=xile-xianyu-helper
+WorkingDirectory=/var/lib/xile-xianyu-helper
+EnvironmentFile=-/etc/xile-xianyu-helper/config.env
+Environment=XIANYU_LOG_DIR=/var/log/xile-xianyu-helper
+ExecStart=/opt/xile-xianyu-helper/xianyu-server -addr 127.0.0.1:59188 -workdir /var/lib/xile-xianyu-helper -data-key-file /var/lib/xile-xianyu-helper/data-key -playwright-runtime-root /opt/xile-xianyu-helper/playwright-runtime
+Restart=on-failure
+RestartSec=5s
+KillSignal=SIGTERM
+TimeoutStopSec=30s
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

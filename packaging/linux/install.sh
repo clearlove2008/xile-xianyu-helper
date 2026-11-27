@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-APP_NAME="ydisks-xianyu-helper"
+APP_NAME="xile-xianyu-helper"
 INSTALL_DIR="/opt/$APP_NAME"
 DATA_DIR="/var/lib/$APP_NAME"
 CONFIG_DIR="/etc/$APP_NAME"
@@ -65,7 +65,7 @@ install -d -m 0750 "$CONFIG_DIR"
 install -m 0755 "$SERVER_SOURCE" "$INSTALL_DIR/xianyu-server"
 install -m 0755 "$BROWSER_SOURCE" "$INSTALL_DIR/browser-install"
 install -D -m 0644 "$ICON_SOURCE" "/usr/share/icons/hicolor/512x512/apps/$APP_NAME.png"
-install -m 0644 "$SCRIPT_DIR/ydisks-xianyu-helper.service" "/etc/systemd/system/$SERVICE_NAME"
+install -m 0644 "$SCRIPT_DIR/xile-xianyu-helper.service" "/etc/systemd/system/$SERVICE_NAME"
 
 if [[ ! -f "$CONFIG_DIR/config.env" ]]; then
   umask 077

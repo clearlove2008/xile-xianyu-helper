@@ -27,8 +27,8 @@ import (
 )
 
 const (
-	dataKeyPath = `C:\ProgramData\YdisksXianyuHelper\data-key`
-	dbPath      = `C:\ProgramData\YdisksXianyuHelper\data\xianyu_data.db`
+	dataKeyPath = `C:\ProgramData\XileXianyuHelper\data-key`
+	dbPath      = `C:\ProgramData\XileXianyuHelper\data\xianyu_data.db`
 )
 
 type planItem struct {

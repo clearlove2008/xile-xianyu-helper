@@ -74,7 +74,7 @@ const canonicalPageEntrypoints = [
   'app/features/notifications/pages/Notifications.tsx',
   'app/features/opportunity/pages/OpportunityPage.tsx',
   'app/features/orders/pages/OrderList.tsx',
-  'app/features/pansou/pages/PanSouSearch.tsx',
+  'app/features/search/pages/SearchSearch.tsx',
   'app/features/studio/pages/StudioPage.tsx',
   'app/features/rules/pages/Rules.tsx',
   'app/features/sales/pages/SalesStats.tsx',

@@ -1,10 +1,10 @@
 import { useCallback,useEffect,useState } from 'react';
 
 /** NOTIFICATION_SOUND_PREFERENCE_KEY 保存当前浏览器的新消息提示音开关，不写入服务端配置。 */
-export const NOTIFICATION_SOUND_PREFERENCE_KEY = 'ydisks.browser_notifications.sound';
+export const NOTIFICATION_SOUND_PREFERENCE_KEY = 'xile.browser_notifications.sound';
 
 /** NOTIFICATION_SOUND_CHANGE_EVENT 用于同一标签页内同步设置页与消息入口的提示音偏好。 */
-const NOTIFICATION_SOUND_CHANGE_EVENT = 'ydisks:notification-sound-preference-changed';
+const NOTIFICATION_SOUND_CHANGE_EVENT = 'xile:notification-sound-preference-changed';
 
 /** NOTIFICATION_SOUND_NOTES 是默认提示音的两个音符：频率（Hz）、起始偏移（秒）和持续时长（秒）。 */
 const NOTIFICATION_SOUND_NOTES: ReadonlyArray<{

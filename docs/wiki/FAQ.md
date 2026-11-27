@@ -23,7 +23,7 @@ Yes. Besides SQLite, MySQL and PostgreSQL are supported; see [Deployment and Dat
 An unsigned installer gets blocked by the system. Open *System Settings → Privacy & Security*, find the blocked item and click "Open Anyway", then install again. If it still fails, when reporting include your macOS version, chip (Apple silicon or Intel), the installer file name and the full error.
 
 **Updating on Windows says "Windows service registration failed".**
-We have no confirmed cause yet. Try running the installer as administrator after stopping the old `YdisksXianyuHelper` service; if it still fails, open an issue with the full error.
+We have no confirmed cause yet. Try running the installer as administrator after stopping the old `XileXianyuHelper` service; if it still fails, open an issue with the full error.
 
 **The notification test says "access to non-public address denied".**
 When "Restrict user-configured HTTP outbound requests to public addresses" is enabled in System and AI (off by default), the program refuses notification URLs that resolve to a private IP; the switch covers API delivery, AI, HTTP notifications, remote images and the remote slider service, while email (SMTP) notifications and image-URL downloads for bulk listing are not affected by the switch and always connect to public addresses only. The usual cause is a proxy in fake-ip mode (mihomo, for example) answering your notification server's domain with a private address. Add that domain to the proxy's fake-ip filter.

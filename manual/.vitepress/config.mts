@@ -9,7 +9,7 @@ const sidebar = (prefix: string, groupIdx: 'zh' | 'en', titleIdx: number): Defau
   }));
 
 export default defineConfig({
-  title: 'Ydisks闲鱼助手手册',
+  title: '喜乐闲鱼助手手册',
   base: '/manual/',
   outDir: 'dist',
   cleanUrls: true,
@@ -19,7 +19,7 @@ export default defineConfig({
   ignoreDeadLinks: false,
   themeConfig: {
     logo: '/favicon.svg',
-    socialLinks: [{ icon: 'github', link: 'https://github.com/Christ9038/Ydisks-Xianyu-Helper' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/clearlove2008/Xile-Xianyu-Helper' }],
     search: { provider: 'local' },
     outline: { level: [2, 3] },
   },
@@ -27,12 +27,12 @@ export default defineConfig({
     root: {
       label: '简体中文',
       lang: 'zh-CN',
-      description: 'Ydisks闲鱼助手完整使用手册：部署、账号、卡密、商品、订单、自动发货、AI、通知与风控。',
+      description: '喜乐闲鱼助手完整使用手册：部署、账号、卡密、商品、订单、自动发货、AI、通知与风控。',
       themeConfig: {
         nav: [
           { text: '快速开始', link: '/deployment' },
           { text: '常见问题', link: '/faq' },
-          { text: '官网', link: 'https://xianyu.ydisks.com/', target: '_self' },
+          { text: '官网', link: 'https://xianyu.xile.com/', target: '_self' },
         ],
         sidebar: sidebar('/', 'zh', 3),
         outline: { label: '本页目录', level: [2, 3] },
@@ -60,12 +60,12 @@ export default defineConfig({
       label: 'English',
       lang: 'en-US',
       link: '/en/',
-      description: 'Complete user manual for Ydisks Xianyu Helper.',
+      description: 'Complete user manual for Xile Xianyu Helper.',
       themeConfig: {
         nav: [
           { text: 'Get Started', link: '/en/deployment' },
           { text: 'FAQ', link: '/en/faq' },
-          { text: 'Website', link: 'https://xianyu.ydisks.com/', target: '_self' },
+          { text: 'Website', link: 'https://xianyu.xile.com/', target: '_self' },
         ],
         sidebar: sidebar('/en/', 'en', 4),
       },

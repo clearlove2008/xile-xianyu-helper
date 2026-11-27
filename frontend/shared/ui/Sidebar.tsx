@@ -3,7 +3,7 @@ import {
   Bell, Box, ChevronLeft, ChevronRight, CloudDownload, CreditCard, FileStack, HardDrive, Library, LayoutDashboard,
   GitCommitHorizontal, LogOut, MessageCircleMore, Rocket, ScrollText, Settings, ShoppingBag, TrendingUp, Users, Wand2, Workflow, Zap,
 } from 'lucide-react';
-import { YdisksBrandIcon } from './YdisksLogo';
+import { XileBrandIcon } from './XileLogo';
 
 // SidebarBuildInfo 描述应用壳传递给侧边栏的公开构建版本信息。
 export interface SidebarBuildInfo {
@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     { id: 'accounts', icon: Users, label: '账号管理' },
     { id: 'chat', icon: MessageCircleMore, label: '在线聊天' },
     { id: 'library', icon: Library, label: '本地资源库' },
-    { id: 'pansou', icon: CloudDownload, label: '网盘搜索' },
+    { id: 'search', icon: CloudDownload, label: '网盘搜索' },
     { id: 'netdisk-transfer', icon: Rocket, label: '网盘转存' },
     { id: 'netdisk-accounts', icon: HardDrive, label: '网盘账号' },
     { id: 'opportunity', icon: Rocket, label: '商机挖掘' },
@@ -58,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className={`fixed inset-y-0 left-0 z-20 flex flex-col border-r border-slate-200/80 bg-white/95 shadow-sidebar backdrop-blur-xl transition-[width] duration-300 ${collapsed ? 'w-16' : 'w-64'}`}>
       <div className={`flex h-20 items-center border-b border-slate-100 ${collapsed ? 'justify-center px-2' : 'gap-3 px-5'}`}>
-        <YdisksBrandIcon sizeClass="h-10 w-10" />
+        <XileBrandIcon sizeClass="h-10 w-10" />
         {!collapsed && (
           <div className="min-w-0 leading-tight">
             <div className="truncate text-base font-black tracking-tight text-slate-950">喜乐闲鱼助手</div>

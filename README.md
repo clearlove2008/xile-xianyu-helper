@@ -2,6 +2,14 @@
 
 > A local-first Xianyu operations workbench that connects product sourcing, publishing, customer service, order fulfillment and after-sales into one automated pipeline. Ships as a single Go binary with a React UI, plus one-click offline installers for Windows and macOS.
 
+## Join the community
+
+<img src="docs/images/wechat-group-qr.png" alt="WeChat group QR code" width="200">
+
+> **State your purpose when applying**: send a request with a note like "Xile Xianyu Helper + your use case", e.g. "Xile Helper - interested in opportunity mining" or "Xile Helper - purchased, need install help". Requests without a purpose will not be approved, to keep ads out.
+>
+> In the group: installation and usage help, feature suggestions, Xianyu operations tips. **For software issues, ask in the group for a faster reply.**
+
 [![Go](https://img.shields.io/badge/Go-1.26-00ADD8?logo=go&logoColor=white)](go.mod)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](frontend/package.json)
 [![SQLite / MySQL / PostgreSQL](https://img.shields.io/badge/SQLite%20%7C%20MySQL%20%7C%20PostgreSQL-4479A1)](internal/db/migrations/)
@@ -41,14 +49,14 @@ A complete path from "what others are selling" to "it's live in my shop":
 - **Workflow tasks**: compose "search → filter → one-click publish" into reusable workflows; task state is persisted via the `00064_workflow_tasks.sql` migration.
 - **One-click publishing**: select items and accounts directly from opportunity results and publish in bulk through the same MTOP channel used by manual publishing.
 
-### 2. Aggregated search (embedded PanSou)
+### 2. Aggregated search
 
-The open-source PanSou project is compiled **into the same binary** — no separate service, no unified login required:
+Multi-source search is compiled **into the same binary** — no separate service, no unified login required:
 
 - **75 search plugins**: covering common netdisk search sites, media, software and study resources; plugins self-register into a unified result model.
 - **Telegram channel search**: multiple channels configurable, whole-word matching filter (searching "八仙" no longer drags in unrelated results), correct title attribution.
 - **Xuebapan plugin**: HTML search against `xuebapan.com` with 5-page concurrent fetching and up to **100 results** per query; detail-page parsing, extraction-code detection and promo-keyword filtering included.
-- Results on the PanSou page are grouped by source plugin; channels and plugins can be toggled individually.
+- Results on the Resource Search page are grouped by source; channels and plugins can be toggled individually.
 
 ### 3. Netdisk transfer & sharing (Quark + Baidu)
 
@@ -104,7 +112,7 @@ Replace images on already-listed items without touching other fields:
 | Accounts | Multi-account login state, groups, notes, scheduled task settings |
 | Opportunity mining | Product search, multi-image detail, filtered one-click publishing |
 | Product workflows | Compose and monitor search-to-publish task chains |
-| PanSou search | 75 plugins + TG channels + Xuebapan aggregated search |
+| Resource search | 75 plugins + TG channels + Xuebapan aggregated search |
 | Netdisk transfer | Quark/Baidu accounts, QR login, transfer and share-link generation |
 | Live chat | Real-time conversations, quick replies, AI replies |
 | Orders | Order sync, manual fulfillment, missing-order recovery |
@@ -176,7 +184,7 @@ Common settings:
 | `XIANYU_ADMIN_PASSWORD` | Admin password created on first launch |
 | `BROWSER_HEADLESS` | Whether to run the browser headless |
 | `LOG_LEVEL` / `LOG_FORMAT` | Log level and format |
-| `CHANNELS` | PanSou Telegram channels (comma-separated) |
+| `CHANNELS` | Search Telegram channels (comma-separated) |
 
 Runtime parameters such as `reshelf_interval_minutes` can be changed in the UI settings without a restart.
 
@@ -199,7 +207,7 @@ Repository layout:
 
 - `cmd/server`, `cmd/tray` — server and tray entry points
 - `internal/xianyu/mtop` — Xianyu MTOP APIs (publish, search, orders, image replacement, ...)
-- `internal/pansou` — aggregated search and 75 plugins
+- `internal/search` — aggregated search and 75 plugins
 - `internal/netdisk` — Quark / Baidu netdisk clients
 - `internal/automation`, `internal/workflow` — automation and workflow engines
 - `internal/db/migrations` — migrations for three databases
@@ -210,9 +218,9 @@ Repository layout:
 
 ## License & Attribution
 
-This is the "Xile Xianyu Helper" distribution, forked from [Ydisks-Xianyu-Helper](https://github.com/Christ9038/Ydisks-Xianyu-Helper) (Apache License 2.0, Copyright 2026 Christ9038). Upstream copyright and license notices are preserved in [LICENSE](LICENSE) and [NOTICE](NOTICE).
+This project is released under the Apache License 2.0. It is a distribution forked from another Apache-2.0 licensed open-source project; the original copyright and license notices are preserved as required by the license in [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-On top of the upstream version, this distribution adds or improves: opportunity mining and product workflows, one-click publishing, embedded PanSou aggregated search (75 plugins plus Xuebapan), Telegram whole-word filtering, Quark/Baidu netdisk transfer, sold-out auto re-listing, inventory-limit fallback, shipping-location fallback, multi-account selection for publishing, batch product image replacement, and Windows / macOS offline installers.
+This distribution adds or improves: opportunity mining and product workflows, one-click publishing, embedded aggregated search (75 plugins plus Xuebapan), Telegram whole-word filtering, Quark/Baidu netdisk transfer, sold-out auto re-listing, inventory-limit fallback, shipping-location fallback, multi-account selection for publishing, batch product image replacement, and Windows / macOS offline installers.
 
 ### Security & privacy
 

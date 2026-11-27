@@ -55,15 +55,15 @@ Standalone packages and Docker use the same Playwright Chromium source. Chromium
 
 | Platform | Installation | Service identifier | Default URL |
 | --- | --- | --- | --- |
-| Linux amd64/arm64 | Extract and run `./install.sh` as root (systemd required) | `ydisks-xianyu-helper.service` | `http://127.0.0.1:59188` |
-| Windows (x64) | Run the Inno Setup installer | `YdisksXianyuHelper` | `http://127.0.0.1:59188` |
-| macOS arm64/amd64 | Run the package for the matching architecture | `com.ydisks.xianyu-helper.server` | `http://127.0.0.1:59188` |
+| Linux amd64/arm64 | Extract and run `./install.sh` as root (systemd required) | `xile-xianyu-helper.service` | `http://127.0.0.1:59188` |
+| Windows (x64) | Run the Inno Setup installer | `XileXianyuHelper` | `http://127.0.0.1:59188` |
+| macOS arm64/amd64 | Run the package for the matching architecture | `com.xile.xianyu-helper.server` | `http://127.0.0.1:59188` |
 
-Windows and macOS packages also install an independent tray/menu-bar controller (on macOS, the `com.ydisks.xianyu-helper.tray` LaunchAgent). It shows checking, starting, healthy, and stopping states; starts, stops, and restarts the backend; opens the log directory; and waits for confirmed shutdown before exiting. During Windows installation, the interactive user receives permission to query, start, and stop this service, so normal tray actions do not repeatedly show UAC. Changing service configuration or deleting the service still requires administrator rights. The Windows service is registered as delayed-automatic start. Linux has no desktop tray; use systemd (`systemctl status ydisks-xianyu-helper.service`).
+Windows and macOS packages also install an independent tray/menu-bar controller (on macOS, the `com.xile.xianyu-helper.tray` LaunchAgent). It shows checking, starting, healthy, and stopping states; starts, stops, and restarts the backend; opens the log directory; and waits for confirmed shutdown before exiting. During Windows installation, the interactive user receives permission to query, start, and stop this service, so normal tray actions do not repeatedly show UAC. Changing service configuration or deleting the service still requires administrator rights. The Windows service is registered as delayed-automatic start. Linux has no desktop tray; use systemd (`systemctl status xile-xianyu-helper.service`).
 
-On first install the Linux script writes a randomly generated `XIANYU_DATA_KEY` and `LOG_FORMAT=json` to `/etc/ydisks-xianyu-helper/config.env` (mode 0600), without overwriting an existing file. The systemd unit reads it through `EnvironmentFile`; that key takes precedence over `-data-key-file`, so back it up and migrate it together with the data. The script also runs `browser-install -deps-only` to install the system libraries Chromium needs (set `XIANYU_SKIP_BROWSER_DEPS=1` to skip).
+On first install the Linux script writes a randomly generated `XIANYU_DATA_KEY` and `LOG_FORMAT=json` to `/etc/xile-xianyu-helper/config.env` (mode 0600), without overwriting an existing file. The systemd unit reads it through `EnvironmentFile`; that key takes precedence over `-data-key-file`, so back it up and migrate it together with the data. The script also runs `browser-install -deps-only` to install the system libraries Chromium needs (set `XIANYU_SKIP_BROWSER_DEPS=1` to skip).
 
-Data and log locations are `C:\ProgramData\YdisksXianyuHelper` on Windows, `~/Library/Application Support/YdisksXianyuHelper` and `~/Library/Logs/YdisksXianyuHelper` on macOS, and `/var/lib/ydisks-xianyu-helper` and `/var/log/ydisks-xianyu-helper` on Linux. Select a CPU-matching arm64 or amd64 package on macOS. Install Linux packages on the same architecture as the host; the installer does not use QEMU.
+Data and log locations are `C:\ProgramData\XileXianyuHelper` on Windows, `~/Library/Application Support/XileXianyuHelper` and `~/Library/Logs/XileXianyuHelper` on macOS, and `/var/lib/xile-xianyu-helper` and `/var/log/xile-xianyu-helper` on Linux. Select a CPU-matching arm64 or amd64 package on macOS. Install Linux packages on the same architecture as the host; the installer does not use QEMU.
 
 Local macOS packaging must build the frontend and three executables before calling the single packaging script. If runtime files are missing, the script prepares the matching driver, Chromium, and headless shell from the local Playwright cache:
 
@@ -81,17 +81,17 @@ For Intel macOS, replace `arm64` with `amd64` and prepare the matching x64 runti
 
 ## Desktop logs and operations
 
-Windows and macOS tray menus show the service status and offer Open Management Page, Open Log Directory, Start Service, Stop Service, Restart Service, and Exit Tray (the Chinese menu labels are “打开管理页面”, “打开日志目录”, “启动服务”, “停止服务”, “重启服务”, “退出托盘”). Choosing Exit Tray stops the backend first, preventing an unmanaged background process. The Windows installer configures the service’s minimum control permission once. A normal interactive user can later query, start, and stop `YdisksXianyuHelper` from the tray without another UAC prompt; changing configuration, deleting the service, and controlling other services still require administrator rights.
+Windows and macOS tray menus show the service status and offer Open Management Page, Open Log Directory, Start Service, Stop Service, Restart Service, and Exit Tray (the Chinese menu labels are “打开管理页面”, “打开日志目录”, “启动服务”, “停止服务”, “重启服务”, “退出托盘”). Choosing Exit Tray stops the backend first, preventing an unmanaged background process. The Windows installer configures the service’s minimum control permission once. A normal interactive user can later query, start, and stop `XileXianyuHelper` from the tray without another UAC prompt; changing configuration, deleting the service, and controlling other services still require administrator rights.
 
-- Windows: `C:\ProgramData\YdisksXianyuHelper\logs\server.log`, with tray output in `tray.log` in the same directory; the reason for a failed service registration is written to `service-registration-error.log` there
-- macOS: `~/Library/Logs/YdisksXianyuHelper/server.log`, with tray output in `tray.log` in the same directory
-- Linux: `/var/log/ydisks-xianyu-helper/server.log` (set through `XIANYU_LOG_DIR`); `journalctl -u ydisks-xianyu-helper.service` shows systemd start/stop records, while the application's own log is in that file
+- Windows: `C:\ProgramData\XileXianyuHelper\logs\server.log`, with tray output in `tray.log` in the same directory; the reason for a failed service registration is written to `service-registration-error.log` there
+- macOS: `~/Library/Logs/XileXianyuHelper/server.log`, with tray output in `tray.log` in the same directory
+- Linux: `/var/log/xile-xianyu-helper/server.log` (set through `XIANYU_LOG_DIR`); `journalctl -u xile-xianyu-helper.service` shows systemd start/stop records, while the application's own log is in that file
 
 For first use on desktop, open the management page and enter and confirm the administrator password on the initialization page. No database path or terminal is required.
 
 ## SQLite
 
-SQLite is suitable for development or light single-machine use. The default database path is `data/xianyu_data.db` relative to the working directory; on Windows and macOS, when neither `-workdir` nor `-db` is given, it automatically moves to the platform data directory (on macOS `~/Library/Application Support/YdisksXianyuHelper/data/xianyu_data.db`):
+SQLite is suitable for development or light single-machine use. The default database path is `data/xianyu_data.db` relative to the working directory; on Windows and macOS, when neither `-workdir` nor `-db` is given, it automatically moves to the platform data directory (on macOS `~/Library/Application Support/XileXianyuHelper/data/xianyu_data.db`):
 
 ```bash
 go run ./cmd/server -db data/xianyu_data.db -addr :59188
@@ -151,7 +151,7 @@ PostgreSQL backup example:
 
 ```bash
 docker compose exec -T postgres pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" \
-  > ydisks-backup.sql
+  > xile-backup.sql
 ```
 
 Upgrade order: back up the database and `.env` → pull/build the new image → `docker compose up -d` → inspect logs for successful migrations → sign in and check accounts and automation. If migration fails, stop and restore from backup rather than continuing.

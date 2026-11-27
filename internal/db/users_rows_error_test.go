@@ -14,7 +14,7 @@ import (
 var errDeleteUserCookieRows = errors.New("cookie rows iteration failed")
 
 // deleteUserRowsDriverName 是只供本测试使用的 database/sql 驱动注册名称。
-const deleteUserRowsDriverName = "ydisks-delete-user-rows-error"
+const deleteUserRowsDriverName = "xile-delete-user-rows-error"
 
 // deleteUserRowsRegisterOnce 保证并发测试执行时仅注册一次测试驱动。
 var deleteUserRowsRegisterOnce sync.Once

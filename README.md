@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue)](LICENSE)
 [![Release](https://img.shields.io/badge/Release-v2026.11.26-orange)](https://github.com/clearlove2008/xile-xianyu-helper/releases/tag/v2026.11.26)
 
-[中文 README](README.zh-CN.md) · [Features](#features) · [Quick Start](#quick-start) · [UI Tour](#ui-tour) · [Packaging](#packaging) · [Configuration](#configuration) · [Development](#development) · [License & Attribution](#license--attribution)
+[中文 README](README.zh-CN.md) · [Features](#features) · [Screenshots](#screenshots) · [Quick Start](#quick-start) · [UI Tour](#ui-tour) · [Packaging](#packaging) · [Configuration](#configuration) · [Development](#development) · [License & Attribution](#license--attribution)
 
 > [!IMPORTANT]
 > This project is for personal technical study only. It is **not affiliated with or authorized by Xianyu / Alibaba or any netdisk provider**. You are responsible for reviewing and complying with the applicable platform terms and local laws. The authors assume no liability for any consequences of using this software.
@@ -35,6 +35,21 @@ Xile Xianyu Helper folds those steps into a single locally running workbench:
 - **Resources**: Quark / Baidu netdisk QR or cookie login, one-click transfer and generation of your own share links, with accounts managed separately.
 
 All data stays on your machine (SQLite by default) — nothing is routed through a third party.
+
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Dashboard</b><br><img src="docs/images/dashboard.png" alt="Dashboard" width="460"></td>
+    <td align="center"><b>Opportunity mining &amp; batch publishing</b><br><img src="docs/images/opportunity.png" alt="Opportunity mining and batch publishing" width="460"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Aggregated resource search</b><br><img src="docs/images/resource-search.png" alt="Aggregated resource search" width="460"></td>
+    <td align="center"><b>Sales analytics</b><br><img src="docs/images/sales-stats.png" alt="Sales analytics" width="460"></td>
+  </tr>
+</table>
 
 ---
 

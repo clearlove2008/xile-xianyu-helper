@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue)](LICENSE)
 [![Release](https://img.shields.io/badge/Release-v2026.11.26-orange)](https://github.com/clearlove2008/xile-xianyu-helper/releases/tag/v2026.11.26)
 
-[English README](README.md) · [功能特性](#功能特性) · [快速开始](#快速开始) · [界面导览](#界面导览) · [打包安装](#打包安装) · [配置说明](#配置说明) · [开发指南](#开发指南) · [开源协议与归属](#开源协议与归属)
+[English README](README.md) · [功能特性](#功能特性) · [界面预览](#界面预览) · [快速开始](#快速开始) · [界面导览](#界面导览) · [打包安装](#打包安装) · [配置说明](#配置说明) · [开发指南](#开发指南) · [开源协议与归属](#开源协议与归属)
 
 > [!IMPORTANT]
 > 本项目仅用于个人技术学习研究，**未获得闲鱼 / 阿里巴巴或任何网盘厂商的官方授权**。请自行评估并遵守相关平台的服务条款与当地法律法规。作者不对使用本软件产生的任何后果负责。
@@ -35,6 +35,21 @@
 - **资源**：夸克 / 百度网盘扫码登录、Cookie 登录、一键转存并生成自己的分享链接，账号独立管理。
 
 所有数据留在你自己的机器上（SQLite 默认），不经过第三方中转。
+
+---
+
+## 界面预览
+
+<table>
+  <tr>
+    <td align="center"><b>运营仪表盘</b><br><img src="docs/images/dashboard.png" alt="运营仪表盘" width="460"></td>
+    <td align="center"><b>商机挖掘 · 批量上架</b><br><img src="docs/images/opportunity.png" alt="商机挖掘与批量上架" width="460"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>聚合资源搜索</b><br><img src="docs/images/resource-search.png" alt="聚合资源搜索" width="460"></td>
+    <td align="center"><b>销售统计</b><br><img src="docs/images/sales-stats.png" alt="销售统计" width="460"></td>
+  </tr>
+</table>
 
 ---
 
@@ -112,7 +127,7 @@
 | 账号管理 | 多账号登录态、分组备注、自动任务设置 |
 | 商机挖掘 | 商品搜索、多图详情、筛选后一键上架 |
 | 商品工作流 | 编排搜索到上架的任务链，查看执行记录 |
-| Search 搜索 | 75 个插件 + TG 频道 + 学霸盘聚合搜索 |
+| 网盘搜索 | 75 个插件 + TG 频道 + 学霸盘聚合搜索 |
 | 网盘转存 | 夸克/百度账号、扫码登录、转存并生成分享链接 |
 | 在线聊天 | 实时会话、快捷回复、AI 回复 |
 | 订单管理 | 订单同步、手动发货、缺单补录 |
